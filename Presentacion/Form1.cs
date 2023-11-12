@@ -46,12 +46,12 @@ namespace Presentacion
                         MessageBox.Show("Es requerido un Correo");
                         return;
                     }
-                    if (string.IsNullOrEmpty(txtcategoria.Text))
+                    if (string.IsNullOrEmpty(boxcategoria.Text))
                     {
                         MessageBox.Show("Es requerido una categoria");
                         return;
                     }
-                    objectoCN.insertcliente(txtnombre.Text, txtapellido.Text, txtcorreo.Text, txtcategoria.Text);
+                    objectoCN.insertcliente(txtnombre.Text, txtapellido.Text, txtcorreo.Text, boxcategoria.Text);
                     MessageBox.Show("se inserto correctamente");
                     mostrarclientes();
                     Limpiar();
@@ -81,12 +81,12 @@ namespace Presentacion
                         MessageBox.Show("Es requerido un Correo");
                         return;
                     }
-                    if (string.IsNullOrEmpty(txtcategoria.Text))
+                    if (string.IsNullOrEmpty(boxcategoria.Text))
                     {
                         MessageBox.Show("Es requerido una categoria");
                         return;
                     }
-                    objectoCN.EditarCliente(txtnombre.Text, txtapellido.Text, txtcorreo.Text, txtcategoria.Text, Convert.ToInt32(Idcliente));
+                    objectoCN.EditarCliente(txtnombre.Text, txtapellido.Text, txtcorreo.Text, boxcategoria.Text, Convert.ToInt32(Idcliente));
                     MessageBox.Show("se editado correctamente");
                     mostrarclientes();
                     Limpiar();
@@ -108,7 +108,7 @@ namespace Presentacion
                 txtnombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
                 txtapellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
                 txtcorreo.Text = dataGridView1.CurrentRow.Cells["Correo Electronico"].Value.ToString();
-                txtcategoria.Text = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
+                boxcategoria.SelectedValue = dataGridView1.CurrentRow.Cells["Categoria"].Value.ToString();
                 Idcliente = dataGridView1.CurrentRow.Cells["Cliente ID"].Value.ToString();
             }
             else
@@ -120,7 +120,7 @@ namespace Presentacion
             txtnombre.Clear();
             txtapellido.Clear();
             txtcorreo.Clear();
-            txtcategoria.Clear();
+            boxcategoria.SelectedValue="";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -162,6 +162,19 @@ namespace Presentacion
 
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            producto ventana = new  producto();
+            ventana.Show();
+
+            this.Hide();
+        }
+
+        private void boxcategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

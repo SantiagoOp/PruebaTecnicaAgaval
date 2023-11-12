@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtcategoria = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
@@ -44,6 +43,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnproducto = new System.Windows.Forms.Button();
+            this.boxcategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -111,13 +112,6 @@
             this.label3.Size = new System.Drawing.Size(102, 15);
             this.label3.TabIndex = 8;
             this.label3.Text = "CorreoElectronico";
-            // 
-            // txtcategoria
-            // 
-            this.txtcategoria.Location = new System.Drawing.Point(709, 207);
-            this.txtcategoria.Name = "txtcategoria";
-            this.txtcategoria.Size = new System.Drawing.Size(133, 23);
-            this.txtcategoria.TabIndex = 11;
             // 
             // label4
             // 
@@ -187,17 +181,40 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // btnproducto
+            // 
+            this.btnproducto.Location = new System.Drawing.Point(281, 377);
+            this.btnproducto.Name = "btnproducto";
+            this.btnproducto.Size = new System.Drawing.Size(194, 23);
+            this.btnproducto.TabIndex = 19;
+            this.btnproducto.Text = "Agregar Producto";
+            this.btnproducto.UseVisualStyleBackColor = true;
+            this.btnproducto.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // boxcategoria
+            // 
+            this.boxcategoria.FormattingEnabled = true;
+            this.boxcategoria.Items.AddRange(new object[] {
+            "Persona Natural",
+            "Persona Jurídica"});
+            this.boxcategoria.Location = new System.Drawing.Point(709, 212);
+            this.boxcategoria.Name = "boxcategoria";
+            this.boxcategoria.Size = new System.Drawing.Size(121, 23);
+            this.boxcategoria.TabIndex = 20;
+            this.boxcategoria.SelectedIndexChanged += new System.EventHandler(this.boxcategoria_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(901, 575);
+            this.Controls.Add(this.boxcategoria);
+            this.Controls.Add(this.btnproducto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.txtcategoria);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtcorreo);
             this.Controls.Add(this.label3);
@@ -228,7 +245,6 @@
         private Label label2;
         private TextBox txtcorreo;
         private Label label3;
-        private TextBox txtcategoria;
         private Label label4;
         private Button BtnGuardar;
         private Button BtnEditar;
@@ -236,5 +252,7 @@
         private PictureBox pictureBox1;
         private Label label5;
         private PictureBox pictureBox2;
+        private Button btnproducto;
+        private ComboBox boxcategoria;
     }
 }
