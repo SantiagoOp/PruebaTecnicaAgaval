@@ -40,36 +40,67 @@ namespace Presentacion
         private void btnguardarpro_Click(object sender, EventArgs e)
         {
             if (editar == false)
-              
-                if (int.TryParse(txtproducto.Text, out int productoID) &&
-                int.TryParse(textprovedor.Text, out int proveedorID))
-            {
-                
-                objectoCN.Insertarpro(productoID, textnombrepro.Text, proveedorID);
-                MessageBox.Show("Se insertó correctamente");
-                mostrarproducto();
-            }
-            else
-            {
-                
-                MessageBox.Show("El valor del producto o del proveedor no es un número entero válido");
-            }
-        if (editar == true)
-            {
-                // Intenta convertir el valor de txtproducto.Text a un entero
-                if (int.TryParse(txtproducto.Text, out int productoID))
+                try
                 {
-                
-                    objectoCN.EditarProduct(productoID, textnombrepro.Text);
-                    MessageBox.Show("Se edito correctamente");
-                    mostrarproducto();
-                    editar = false;
+                    if (string.IsNullOrEmpty(txtproducto.Text))
+                    {
+                        MessageBox.Show("Es requerido un producto ID");
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(textprovedor.Text))
+                    {
+                        MessageBox.Show("Es requerido un provedor ID");
+                        return;
+                    }
+
+                    if (int.TryParse(txtproducto.Text, out int productoID) &&
+                    int.TryParse(textprovedor.Text, out int proveedorID))
+                    {
+
+                        objectoCN.Insertarpro(productoID, textnombrepro.Text, proveedorID);
+                        MessageBox.Show("Se insertó correctamente");
+                        mostrarproducto();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("El valor del producto o del proveedor no es un número entero válido");
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show("El valor del producto o del proveedor no es un número entero válido");
+                    MessageBox.Show("ha ocurrido un error inesperado ");
+                }
+            if (editar == true)
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(txtproducto.Text))
+                    {
+                        MessageBox.Show("Es requerido un producto ID");
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(textprovedor.Text))
+                    {
+                        MessageBox.Show("Es requerido un provedor ID");
+                        return;
+                    }
+                    // Intenta convertir el valor de txtproducto.Text a un entero
+                    if (int.TryParse(txtproducto.Text, out int productoID))
+                    {
+
+                        objectoCN.EditarProduct(productoID, textnombrepro.Text);
+                        MessageBox.Show("Se edito correctamente");
+                        mostrarproducto();
+                        editar = false;
+                    }
 
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("ha ocurrido un error inesperado ");
+                }
+
             }
 
         }       
